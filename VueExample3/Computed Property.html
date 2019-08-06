@@ -1,3 +1,11 @@
+<!-- 
+    1. computed속성과 metods속성의 차이
+    계산형속성과 메서드를 사용했을 때 최종적인 결과물은 같아 보이지만
+    내부 작동 방식에는 차이가 있다.
+    계산형 속성은 종속된 값에 의해 결괏값이 캐싱되고 캐싱된 결괏값을
+    리턴한다.
+    반면 메서드는 매번 실행된 값을 리턴한다.
+ -->
 <!DOCTYPE html>
 <html>
 
@@ -22,6 +30,7 @@
             data: model,
             computed: {
                 sum: function(){
+                    console.log(Date.now());
                     var n = Number(this.num);
 
                     if (Number.isNaN(n) || n<1) return 0;
