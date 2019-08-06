@@ -19,6 +19,7 @@
             computed: {
                 amount:{
                     get:function(){
+                        console.log('get 실행');
                         var s = new String(''+this.amt);
                         var result = '';
                         var num = 0;
@@ -32,6 +33,7 @@
                         return result;
                     },
                     set:function(amt){
+                        console.log('set 실행');
                         if( typeof amt === 'string'){
                             var result = parseInt(amt.replace(/,/g,''));
                             if(isNaN(result)) this.amt = 0;
