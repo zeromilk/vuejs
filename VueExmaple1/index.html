@@ -1,0 +1,84 @@
+<!-- 
+{{}}
+v-text
+v-html
+
+v-bind
+v-model
+ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>hello vue.js</title>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="simple">
+        <h2>{{elMsg}}</h2>
+        <h2 v-text="textMsg"></h2>
+        <h2 v-html="htmlMsg"></h2>
+        <input type="text" v-bind:value="vindMsg" />
+        </br>
+        <img v-bind:src="imagePath" />
+        <br/>
+        <input type="text" v-model="name" placeholder="이름을 입력하세요" />
+        <br/> 입력된 이름 :
+        <h2 v-text="name"></h2>
+    </div>
+    <div id="simple1">
+        <input type="checkbox" :id="apple" :value="apple" v-model.lazy="fruits">
+        <label :for="apple">사과,</label>
+        <input type="checkbox" :id="kiwi" :value="kiwi" v-model.lazy="fruits">
+        <label :for="kiwi">키위,</label>
+        <input type="checkbox" :id="podo" :value="podo" v-model.lazy="fruits">
+        <label :for="podo">포도,</label>
+        <input type="checkbox" :id="subak" :value="subak" v-model.lazy="fruits">
+        <label :for="subak">수박,</label>
+        <input type="checkbox" :id="cham" :value="cham" v-model.lazy="fruits">
+        <label :for="cham">참외</label>
+    </div>
+    <hr />
+    <div id="simple2">
+        선택된 과일들 : <span v-text="fruits"></span>
+    </div>
+    <script type="text/javascript">
+        var model = {
+            elMsg: '<u>v-text 기능을 제공하는 {{}} 표현식</u>',
+            textMsg: '<u>innerTEXT 기능을 하는 v-text 디렉티브</u>',
+            htmlMsg: '<u>태그를 파싱해서 보여주는 v-html 디렉티브</u>',
+            vindMsg: '요소객체의 속성들을 바인딩하기 위한 v-bind 디렉티브',
+            imagePath: "http://sample.bmaster.kro.kr/photos/61.jpg",
+            name: ''
+        };
+
+        var simple = new Vue({
+            el: '#simple',
+            data: model
+        });
+
+        var model2 = {
+            fruits: [],
+            apple: 'apple',
+            kiwi: 'kiwi',
+            podo: 'popo',
+            subak: 'subak',
+            cham: 'cham'
+        };
+
+        var simple1 = new Vue({
+            el: '#simple1',
+            data: model2
+        });
+
+        var simple2 = new Vue({
+            el: '#simple2',
+            data: model2
+        });
+    </script>
+</body>
+
+</html
