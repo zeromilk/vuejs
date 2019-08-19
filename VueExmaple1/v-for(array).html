@@ -44,8 +44,8 @@
                 <template v-for="(contact, index) in contacts">
                 <tr :key="contact.no">
                     <!--<td>{{contact.no}}</td>-->
-                    <td>{{index+1}}</td>
-                    <td>{{contact.name}}</td>
+                    <td v-text="index+1"></td>
+                    <td v-text="contact.name"></td>
                     <td>{{contact.tel}}</td>
                     <td>{{contact.address}}</td>
                 </tr>
