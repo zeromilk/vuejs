@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>05-02</title>
+        <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="example">
+            <button id="a" v-bind:style="style" v-on:mouseover.stop="overEvent" @mouseout.stop="outEvent">테스트</button> <!--스타일 객체를 직접 바인딩하는 방법 **추천!-->
+            <div :style="{backgroundColor: a.bc, border:a.bd, width:a.w+'px', height:a.h+'px'}"> <!--개별적인 속성 하나하나를 바인딩 가능하나 유지보수가 힘들기 때문에 권장하지 않음.-->
+
+            </div>
+            <button id="btn1" :style="[myColor, myLayout]">버튼</button><!--배열을 이용해 여러 개의 스타일 객체를 적용-->
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#example',
+                data:{
+                    style : {backgroundColor:'aqua', border:'solid 1px gray', width:'100px', textAlign:'center'},
+                    a : {bc:'yellow', bd:'solid 1px gray', w:200, h:100},
+                    myColor:{backgroundColor:'purple', color:'yellow'},
+                    myLayout:{width:'150px', height:'80px', textAlign:'center'}
+                },
+                methods:{
+                    overEvent:function(e){
+                        this.style.backgroundColor = 'purple';
+                        this.style.color = 'yellow';
+                    },
+                    outEvent:function(e){
+                        this.style.backgroundColor = 'aqua';
+                        this.style.color = 'black';
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

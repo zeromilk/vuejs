@@ -1,3 +1,10 @@
+<!--
+HTML 문서나 요소에 어떤 기능을 실행하도록 이미 정의되어 있는 이벤트를 기본 이벤트(Default Event)라고 부릅니다.
+·<a>요소를 클릭했을 때 href 특성의 경로로 페이지를 이동시킴
+·브라우저 화면을 마우스 오른쪽 클릭했을 때 내장 컨텍스트 메뉴(Context Menu)가 나타남.
+·<form>요소 내부의 submit 버튼을 클릭했을 때 <form> 요소의 action 특성에 지정된 경로로 method 특성에 지정된 방식으로 전송함.
+·<input type="text" …/> 요소에 키보드를 누르면 입력한 문자가 텍스트 박스에 나타남.
+-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +17,7 @@
         <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
     </head>
     <body>
-        <div id="example" v-on:contextmenu="ctxStop">
+        <div id="example" v-on:contextmenu.prevent="ctxStop">
             <a href="https://facebook.com" @click="confirmFB">페이스북</a>
         </div>
         <script>
@@ -18,7 +25,7 @@
                 el: '#example',
                 methods: {
                     ctxStop: function(e){
-                        e.preventDefault();
+                        e.preventDefault(); //기본 이벤트의 작동을 막음. 수식어 : .prevent
                     },
                     confirmFB: function(e){
                         if(!confirm('페이스북으로 이동할까요?')){                            

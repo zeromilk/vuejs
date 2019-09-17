@@ -33,12 +33,14 @@
                         console.log('Event Phase : ', e.eventPhase);
                         console.log('Current Target : ', e.currentTarget);
                         console.log('Target : ', e.target);
+                        e.stopPropagation(); //이벤트의 전달을 막음. 수식어 : .stop
                     },
                     innerClick: function(e){
                         console.log('### INNER CLICK');
                         console.log('Event Phase : ', e.eventPhase);
                         console.log('Current Target : ', e.currentTarget);
                         console.log('Target : ', e.target);
+                        e.stopPropagation();
                     }
                 },
             })
