@@ -61,10 +61,10 @@
                 <span class="addbutton" v-on:click="addTodo">추 가</span>
             </div>
             <ul id="todolist">
-                <li v-for="a in todolist" v-bind:class="checked(a.done)" v-on:click="doneToggle(a.id)">
-                    <span>{{a.todo}}</span>
-                    <span v-if="a.done"> (완료)</span>
-                    <span class="close" v-on:click.stop="deleteTodo(a.id)">&#x00D7;</span>
+                <li v-for="list in todolist" v-bind:class="checked(list.done)" v-on:click="doneToggle(list.id)">
+                    <span>{{list.todo}}</span>
+                    <span v-if="list.done"> (완료)</span>
+                    <span class="close" v-on:click.stop="deleteTodo(list.id)">&#x00D7;</span>
                 </li>
             </ul>
         </div>
