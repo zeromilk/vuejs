@@ -86,12 +86,22 @@
                         else return {checked:false};
                     },
                     addTodo: function(e){
+                        var max;
+                        var length = this.todolist.length;
+
                         if(this.todo.trim() !== ''){
-                            this.todolist.push({ todo: this.todo.trim(), done:false });
+                            var todolist = this.todolist;
+                            this.todolist.forEach(function(item, index){
+                                var temp = item.id;
+                                if(length === 0) max = 1;
+                                else if(index === 0 || temp > max) max = temp;
+                            });
+
+                            this.todolist.push({ id:max+1, todo: this.todo.trim(), done:false });
                             this.todo = '';
                         }
                     },
-                    deleteTodo: function(id){
+                    deleteTodo: function(id){                   
                         var index = this.todolist.findIndex(function(item){
                             return item.id === id;
                         });
